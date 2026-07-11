@@ -3,6 +3,11 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const works = [
   {
+    name: "POKEBROWSER",
+    href: "https://www.pokebrowser.net/",
+    description: "CHROME EXTENSION THAT BRINGS A POKEMON ADVENTURE TO YOUR BROWSER.",
+  },
+  {
     name: "JOURNEY TO THE EYE",
     href: "https://journey-to-the-eye.vercel.app/",
     description: "SIMULATION OF OPTIMAL PATHS BETWEEN STARS IN THE MILKY WAY",
