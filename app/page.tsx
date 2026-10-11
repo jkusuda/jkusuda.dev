@@ -30,10 +30,10 @@ export default function Home() {
       <Image
         src="/avatar.jpg"
         alt="Jordan Kusuda"
-        width={96}
-        height={96}
+        width={192}
+        height={192}
         priority
-        className="rounded-full size-20 sm:size-24"
+        className="rounded-full size-20 object-cover sm:size-24"
       />
 
       <div className="mt-10 space-y-8 sm:mt-12 sm:space-y-10">
