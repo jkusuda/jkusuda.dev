@@ -83,7 +83,7 @@ export default function Home() {
 
         <Section title="CONTACT">
           <p>
-            <TextLink href="mailto:kusuda.jordan@gmail.com">
+            <TextLink href="mailto:kusuda.jordan.fl@gmail.com">
               KUSUDA.JORDAN.FL@GMAIL.COM
             </TextLink>{" "}
             OR{" "}
