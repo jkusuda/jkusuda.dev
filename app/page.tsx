@@ -38,7 +38,7 @@ export default function Home() {
 
       <div className="mt-10 space-y-8 sm:mt-12 sm:space-y-10">
         <Section title="INTRO">
-          <p>I Love Mii-nagement!</p>
+          <p>I love gait analysis</p>
         </Section>
 
         <Section title="INTERESTS">
