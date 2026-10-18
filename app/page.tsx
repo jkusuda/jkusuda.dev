@@ -38,10 +38,7 @@ export default function Home() {
 
       <div className="mt-10 space-y-8 sm:mt-12 sm:space-y-10">
         <Section title="INTRO">
-          <p>
-            JORDAN KUSUDA - SOFTWARE ENGINEER BY PROFESSION. CURRENTLY EXPLORING
-            HOW TO GIVE MY WORK MEANING TO OTHERS.
-          </p>
+          <p>I Love Mii-nagement!</p>
         </Section>
 
         <Section title="INTERESTS">
