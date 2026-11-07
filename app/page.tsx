@@ -1,93 +1,46 @@
-import Image from "next/image";
-import { PageShell } from "@/components/page-shell";
-import { Section } from "@/components/section";
+import { AboutPhotos } from "@/components/about-photos";
+import { Intro } from "@/components/intro/intro";
 import { TextLink } from "@/components/text-link";
-import { formatDate, getAllPosts } from "@/lib/posts";
-
-const works = [
-  {
-    name: "POKEBROWSER",
-    href: "https://www.pokebrowser.net/",
-    description: "CHROME EXTENSION THAT BRINGS A POKEMON ADVENTURE TO YOUR BROWSER.",
-  },
-  {
-    name: "JOURNEY TO THE EYE",
-    href: "https://journey-to-the-eye.vercel.app/",
-    description: "SIMULATION OF OPTIMAL PATHS BETWEEN STARS IN THE MILKY WAY",
-  },
-  {
-    name: "SUBSCRIPTOS",
-    href: "https://subscriptos-rho.vercel.app/",
-    description: "EXTENSION TO SCAN TOS WHEN BROWSING AND PROTECT YOUR CREDIT CARD.",
-  },
-];
 
 export default function Home() {
-  const posts = getAllPosts().slice(0, 3);
-
   return (
-    <PageShell>
-      <Image
-        src="/avatar.jpg"
-        alt="Jordan Kusuda"
-        width={192}
-        height={192}
-        priority
-        className="rounded-full size-20 object-cover sm:size-24"
-      />
-
-      <div className="mt-10 space-y-8 sm:mt-12 sm:space-y-10">
-        <Section title="INTRO">
-          <p>I Love Mii-nagement!</p>
-        </Section>
-
-        <Section title="INTERESTS">
-          <p>PROGRAMMING, GAME DEV, POKEMON, OUTER SPACE</p>
-        </Section>
-
-        <Section title="WORKS">
-          <ul className="space-y-3">
-            {works.map((work) => (
-              <li key={work.name}>
-                <TextLink href={work.href}>{work.name}</TextLink>
-                {" - "}
-                {work.description}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-3">
-            SEE MORE ON{" "}
-            <TextLink href="https://github.com/jkusuda">GITHUB</TextLink>
-          </p>
-        </Section>
-
-        <Section title="BLOG">
-          <ul className="space-y-3">
-            {posts.map((post) => (
-              <li key={post.slug}>
-                <TextLink href={`/blog/${post.slug}`}>
-                  {post.title.toUpperCase()}
-                </TextLink>
-                {" - "}
-                {formatDate(post.date)}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-3">
-            <TextLink href="/blog">ALL POSTS</TextLink>
-          </p>
-        </Section>
-
-        <Section title="CONTACT">
-          <p>
-            <TextLink href="mailto:kusuda.jordan.fl@gmail.com">
-              KUSUDA.JORDAN.FL@GMAIL.COM
-            </TextLink>{" "}
-            OR{" "}
-            <TextLink href="https://www.linkedin.com/in/jordankusuda/">LINKEDIN</TextLink>
-          </p>
-        </Section>
+    <div className="max-w-xl">
+      <AboutPhotos />
+      <h1
+        data-intro-target="headline"
+        className="text-[clamp(2.75rem,8vw,4.75rem)] leading-none font-light tracking-[-0.045em]"
+      >
+        Hi, I’m Jordan.
+      </h1>
+      <div
+        data-intro-target="paragraph"
+        className="mt-8 space-y-4 text-[17px] leading-relaxed text-muted-foreground"
+      >
+        <p>
+          I’m a software engineer focused on backend systems and game development. I’m studying
+          Computer Science at the University of Florida (graduating May 2028), and I’ve interned two
+          times at <TextLink href="https://www.metrea.aero/">Metrea</TextLink>. Multiplayer servers,
+          real-time systems, and the infrastructure that keeps games running smoothly are my
+          specialty.
+        </p>
+        <p>
+          I care about writing code that’s fast, reliable, and easy for the next person to work
+          with.
+        </p>
+        <p>
+          Outside of coding, I’m usually solving my daily puzzle, playing a Pokémon game, or reading
+          about the latest space discoveries. This site is where I share what I build and what I’m
+          learning.
+        </p>
+        <p>
+          I’m currently looking for backend or game development internships. Feel free to reach out
+          or check out my projects below.
+        </p>
       </div>
-    </PageShell>
+      <p data-intro-target="projects-link" className="mt-6 text-[17px]">
+        <TextLink href="/projects">See my projects →</TextLink>
+      </p>
+      <Intro />
+    </div>
   );
 }

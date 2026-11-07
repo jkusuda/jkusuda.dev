@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# claude code
+/.claude/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Full-size gallery photos, which can contain GPS data. Only web copies get published.
+/gallery-originals/
