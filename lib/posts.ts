@@ -15,9 +15,7 @@ export type PostMeta = {
 export type Post = PostMeta & { content: string };
 
 function readPost(file: string): Post | null {
-  const { data, content } = matter(
-    fs.readFileSync(path.join(POSTS_DIR, file), "utf8"),
-  );
+  const { data, content } = matter(fs.readFileSync(path.join(POSTS_DIR, file), "utf8"));
   if (data.draft) return null;
   return {
     slug: file.replace(/\.md$/, ""),

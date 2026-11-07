@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/markdown";
-import { PageShell } from "@/components/page-shell";
-import { Section } from "@/components/section";
+import { PageTitle } from "@/components/page-title";
 import { TextLink } from "@/components/text-link";
 import { formatDate, getAllPosts, getPost } from "@/lib/posts";
 
@@ -18,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPost((await params).slug);
   if (!post) return {};
   return {
-    title: `${post.title} - jordan's website`,
+    title: post.title,
     description: post.description,
   };
 }
@@ -28,17 +27,15 @@ export default async function BlogPost({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <PageShell>
-      <div className="space-y-8 sm:space-y-10">
-        <p>
-          <TextLink href="/blog">&lt; ALL POSTS</TextLink>
-        </p>
-
-        <Section title={post.title.toUpperCase()}>
-          <p className="mb-6">{formatDate(post.date)}</p>
-          <Markdown>{post.content}</Markdown>
-        </Section>
+    <article className="max-w-2xl">
+      <p className="text-muted-foreground">
+        <TextLink href="/blog">← All posts</TextLink>
+      </p>
+      <div className="mt-8">
+        <PageTitle>{post.title}</PageTitle>
       </div>
-    </PageShell>
+      <p className="mt-3 mb-8 text-sm text-muted-foreground">{formatDate(post.date)}</p>
+      <Markdown>{post.content}</Markdown>
+    </article>
   );
 }
