@@ -1,9 +1,12 @@
 import Image from "next/image";
 import {
+  siCplusplus,
   siDart,
+  siDocker,
   siDjango,
   siFastapi,
   siFlutter,
+  siGo,
   siGodotengine,
   siGooglegemini,
   siNextdotjs,
@@ -32,14 +35,20 @@ const LOGOS = {
   Dart: siDart,
   FastAPI: siFastapi,
   "Google Gemini": siGooglegemini,
+  Go: siGo,
+  "C++": siCplusplus,
+  Docker: siDocker,
 };
+
+// No icon exists for these, so their name is shown as a wordmark.
+const TEXT_LOGOS = ["gRPC"] as const;
 
 // Not a real dependency: Journey to the Eye is a nod to this game, so its logo keeps its color.
 const IMAGE_LOGOS = {
   "Outer Wilds": { src: "/projects/journey-to-the-eye/outer-wilds.png", width: 1798, height: 1604 },
 };
 
-export type Tech = keyof typeof LOGOS | keyof typeof IMAGE_LOGOS;
+export type Tech = keyof typeof LOGOS | keyof typeof IMAGE_LOGOS | (typeof TEXT_LOGOS)[number];
 
 export function TechStack({ stack, className }: Readonly<{ stack: Tech[]; className: string }>) {
   return (
@@ -57,6 +66,10 @@ export function TechStack({ stack, className }: Readonly<{ stack: Tech[]; classN
                 alt=""
                 className="h-10 w-auto"
               />
+            ) : (TEXT_LOGOS as readonly string[]).includes(name) ? (
+              <span aria-hidden className="block text-lg leading-7 font-bold tracking-tight">
+                {name}
+              </span>
             ) : (
               <svg viewBox="0 0 24 24" fill="currentColor" className="size-7" aria-hidden>
                 <path d={LOGOS[name as keyof typeof LOGOS].path} />

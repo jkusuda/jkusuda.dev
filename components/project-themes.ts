@@ -40,6 +40,10 @@ const SUBSCRIPTOS_BUTTON =
 const MII_BUTTON =
   "rounded-full bg-white font-medium text-[#153c61] shadow-md transition-colors hover:bg-[#fff9dc]";
 
+// Orbital cuts two opposite corners off its panels and buttons, like an asteroid facet.
+const ORBITAL_BUTTON =
+  "[clip-path:polygon(6px_0,100%_0,100%_calc(100%_-_6px),calc(100%_-_6px)_100%,0_100%,0_6px)] text-xs tracking-[0.08em] uppercase transition-colors";
+
 const THEMES: Record<string, PopupTheme> = {
   pokebrowser: {
     surface: `${baloo.className} text-[#173b1c]`,
@@ -50,6 +54,17 @@ const THEMES: Record<string, PopupTheme> = {
     media: "rounded-xl border-4 border-[#2f6b2a] shadow-[0_6px_0_#2f6b2a]",
     stack: "text-[#102a14] [filter:drop-shadow(0_0_3px_#fff)]",
     close: POKEBROWSER_BUTTON,
+  },
+  orbital: {
+    surface: "font-[system-ui,sans-serif] text-[#f1e9d8]",
+    scrim: "bg-[radial-gradient(ellipse_at_center,#151a24e6_35%,#151a2499_100%)]",
+    title: "text-3xl font-bold tracking-[0.2em] uppercase md:text-4xl",
+    description: "leading-relaxed text-[#d8d0bf]",
+    link: `${ORBITAL_BUTTON} bg-[#f2a65a] text-black hover:bg-[#f1e9d8]`,
+    media:
+      "[clip-path:polygon(18px_0,100%_0,100%_calc(100%_-_18px),calc(100%_-_18px)_100%,0_100%,0_18px)]",
+    stack: "text-[#f1e9d8]",
+    close: `${ORBITAL_BUTTON} bg-[#252c3a] text-[#f1e9d8] hover:bg-[#f2a65a] hover:text-black`,
   },
   "journey-to-the-eye": {
     surface: `${spaceMono.className} text-[#d9d9d9]`,

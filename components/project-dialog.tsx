@@ -12,7 +12,7 @@ import type { Project } from "@/lib/projects";
 type ProjectProps = Readonly<{ project: Project; theme: PopupTheme }>;
 
 function ProjectMedia({ project, theme }: ProjectProps) {
-  const { name, art, youtubeId, screens } = project;
+  const { name, art, youtubeId, screens, screenshot } = project;
 
   if (youtubeId) {
     return (
@@ -46,6 +46,17 @@ function ProjectMedia({ project, theme }: ProjectProps) {
           </li>
         ))}
       </ul>
+    );
+  }
+
+  if (screenshot) {
+    return (
+      <Image
+        {...screenshot}
+        alt={`${name} screenshot`}
+        sizes="(min-width: 768px) 576px, 92vw"
+        className={`mt-7 h-auto w-full ${theme.media}`}
+      />
     );
   }
 

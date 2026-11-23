@@ -38,6 +38,19 @@ const MOTIFS = {
       <path d="M172 76 C150 64 132 72 124 88 M172 76 C190 60 212 66 222 84 M172 76 C164 56 146 48 130 52 M172 76 C182 56 200 46 216 52" />
     </>
   ),
+  orbit: (
+    <>
+      <circle cx="160" cy="100" r="18" />
+      <ellipse cx="160" cy="100" rx="110" ry="44" transform="rotate(-14 160 100)" />
+      <ellipse cx="160" cy="100" rx="70" ry="64" strokeDasharray="2 9" />
+      <path d="M262 64 L272 70 L270 82 L258 84 L252 74 Z" />
+      <path d="M96 148 L104 144 L110 152 L102 158 Z" />
+      <path
+        d="M52 44 H52.01 M120 30 H120.01 M290 140 H290.01 M220 176 H220.01 M40 120 H40.01"
+        strokeWidth="4"
+      />
+    </>
+  ),
   comet: (
     <>
       <circle cx="226" cy="66" r="15" />

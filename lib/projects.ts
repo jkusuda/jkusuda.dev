@@ -23,6 +23,8 @@ export type Project = {
   youtubeId?: string;
   /** Phone screenshots in public/projects/<slug>/, shown in the popup when there is no video. */
   screens?: { src: string; label: string }[];
+  /** A single wide screenshot in public/projects/<slug>/, shown when there is no video. */
+  screenshot?: { src: string; width: number; height: number };
 };
 
 export const projects: Project[] = [
@@ -32,14 +34,29 @@ export const projects: Project[] = [
     kind: "Browser game",
     href: "https://www.pokebrowser.net/",
     description: "A Chrome extension that brings a Pokémon adventure to your browser.",
-    stack: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"],
+    stack: ["Next.js", "React", "TypeScript", "Go", "Supabase", "Tailwind CSS"],
     art: "browser",
     tint: "#e6cfc3",
     ink: "#9a4f3c",
     background: "/projects/pokebrowser/background.gif",
     pixelated: true,
     thumbnail: "/projects/pokebrowser/thumbnail.webp",
-    youtubeId: "DfkSVHb_8HI",
+    youtubeId: "LeMoADrzyXs",
+  },
+  {
+    slug: "orbital",
+    name: "Orbital",
+    kind: "3D visualization",
+    href: "https://orbital.jkusuda.dev/",
+    description:
+      "A live 3D view of the asteroids passing close to Earth this week using NASA's NEO API.",
+    stack: ["Go", "gRPC", "C++", "Docker", "Three.js"],
+    art: "orbit",
+    tint: "#151a24",
+    ink: "#f2a65a",
+    background: "/projects/orbital/background.webp",
+    thumbnail: "/projects/orbital/demo.png",
+    screenshot: { src: "/projects/orbital/demo.png", width: 2000, height: 1046 },
   },
   {
     slug: "mii-nagement",
