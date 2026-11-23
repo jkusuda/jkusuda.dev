@@ -37,8 +37,9 @@ export default function Home() {
           or check out my projects below.
         </p>
       </div>
-      <p data-intro-target="projects-link" className="mt-6 text-[17px]">
-        <TextLink href="/projects">See my projects →</TextLink>
+      <p data-intro-target="projects-link" className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[17px]">
+        <TextLink href="/projects">See my projects →</TextLink>{" "}
+        <TextLink href="/Jordan_Kusuda_Resume.pdf">View my resume →</TextLink>
       </p>
       <Intro />
     </div>

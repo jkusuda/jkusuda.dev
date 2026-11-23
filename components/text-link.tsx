@@ -6,7 +6,9 @@ export function TextLink({
   href,
   children,
 }: Readonly<{ href: string; children: React.ReactNode }>) {
-  if (href.startsWith("/")) {
+  const isFile = href.endsWith(".pdf");
+
+  if (href.startsWith("/") && !isFile) {
     return (
       <Link href={href} className={CLASS_NAME}>
         {children}
@@ -14,12 +16,12 @@ export function TextLink({
     );
   }
 
-  const external = href.startsWith("http");
+  const newTab = isFile || href.startsWith("http");
   return (
     <a
       href={href}
       className={CLASS_NAME}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
     </a>
