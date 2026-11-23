@@ -137,6 +137,9 @@ export function Intro() {
   return (
     <>
       <Pug />
+      <p className="intro-skip-hint" aria-hidden>
+        click to skip
+      </p>
       {scene && <Overlay scene={scene} ref={overlay} />}
       <PawButton onClick={replay} />
     </>

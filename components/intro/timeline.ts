@@ -61,6 +61,7 @@ export function buildTimeline(
   const timeline = gsap.timeline({ onComplete: onDone });
 
   timeline.to(pug.querySelectorAll("[data-highlight]"), { opacity: 0, duration: CROSSFADE }, HOLD);
+  timeline.to(".intro-skip-hint", { opacity: 0, duration: CROSSFADE }, HOLD);
 
   for (const thread of scene.threads) {
     const render = threadRenderer(svg, thread, scene.threadWidth);

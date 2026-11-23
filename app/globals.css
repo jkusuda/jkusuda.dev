@@ -129,8 +129,30 @@ html:has(.popup-dialog[open]) {
   color: var(--foreground);
 }
 
+.intro-skip-hint {
+  display: none;
+  position: fixed;
+  top: calc(50% + min(31vmin, 220px) + 1rem);
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--muted-foreground);
+  opacity: 0.7;
+  pointer-events: none;
+  user-select: none;
+}
+
 html[data-intro-playing] {
   overflow: hidden;
+}
+
+html[data-intro-playing] .intro-skip-hint {
+  display: block;
+  animation:
+    fade-in 0.7s ease-out,
+    intro-failsafe-hide 0s 12s forwards;
 }
 
 /* The failsafes show the page anyway if the intro's JavaScript never loads. */
